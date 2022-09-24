@@ -1,5 +1,0 @@
-https://stackpython.co/tutorial/api-python-fastapi
-
-runserver  เพื่อดูผลลัพธ์กันนะครับโดยใช้คำสั่ง
-uvicorn main:app --reload #ใส่ --reload เพิ่มเข้าไปเมื่อ Code ของเรามีการเปลี่ยนแปลงตัว Server ก็จะ Restart ให้เราโดยอัตโนมัติ
-สามารถเข้าไปดูหน้าเว็บได้ที่ http://127.0.0.1:8000
