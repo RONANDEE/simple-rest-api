@@ -35,8 +35,8 @@ root.title("Demo Smart OPD")
 # root.iconbitmap('/path/to/ico/icon.ico') # icon
 root.geometry("800x1280")
 root.attributes('-fullscreen',True) #Fullscreen
-bgimg= tk.PhotoImage(file = "C:\\Users\\X8pro\\Documents\\acemed bp\\ACE-MED_beta\\image.png")
-bgSettingImg= tk.PhotoImage(file = "C:\\Users\X8pro\\Documents\\acemed bp\\ACE-MED_beta\\setting.png")
+bgimg= tk.PhotoImage(file = "C:\\Users\\RONAN\\Desktop\\Setting_GUI\\assets\\setting_1.png")
+bgSettingImg= tk.PhotoImage(file = "C:\\Users\RONAN\\Desktop\\Setting_GUI\\assets\\setting_1.png")
 limg= Label(root, i=bgimg).pack()
 isHn=False
 
