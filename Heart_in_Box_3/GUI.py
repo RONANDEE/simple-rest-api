@@ -11,7 +11,7 @@ import simple_pid
 
 
 # Open the serial connection to the motor controller
-client = ModbusClient(method='rtu', port='COM12', baudrate=115200,timeout=1)
+client = ModbusClient(method='rtu', port='COM4', baudrate=115200,timeout=1)
 client.connect()
 
 root = Tk()
@@ -37,7 +37,7 @@ value_label7 = Label(root, text="Pressure #7 : ",font=('Ansana New',30,'bold'),f
 value_label7.pack()
 
 # Create Serial object with appropriate settings
-ser = serial.Serial('COM3', 19200)
+ser = serial.Serial('COM3', 115200)
 
 # Define function to update label with new sensor value
 def update_label():
@@ -70,23 +70,23 @@ root.after(100, update_label)
 
 
 def start():
-    request = client.write_register(CONTROL_WORD,SWITCH_ON,unit=3) # SWITCH ON
-    request = client.write_register(CONTROL_WORD,DRIVE,unit=3) # Drive
+    request = client.write_register(CONTROL_WORD,SWITCH_ON,unit=1) # SWITCH ON
+    request = client.write_register(CONTROL_WORD,DRIVE,unit=1) # Drive
     print('start')
 
 def stop():
-    request = client.write_register(CONTROL_WORD,STOP,unit=3) 
+    request = client.write_register(CONTROL_WORD,STOP,unit=1) 
     print("Motor#1 is stopping")
     
 
 def getActualSpeed():
-    request = client.read_input_registers(ACTUAL_SPEED,2,unit=3)
+    request = client.read_input_registers(ACTUAL_SPEED,2,unit=1)
     [speed, rotation] = listToRPM(request.registers)
     print(">> Actual Speed: {} RPM, Direction: {}". format(speed, rotation))    
 
 def setTargetSpeed(speed, rotation='CW'):
     rpm = calRPM(speed, rotation=rotation)
-    request = client.write_registers(TARGET_SPEED,rpm,unit=3)
+    request = client.write_registers(TARGET_SPEED,rpm,unit=1)
     print(">> Speed setting: {} RPM, Direction: {}". format(speed, rotation))  
 
 def PID_update():
@@ -115,7 +115,7 @@ def PID_update():
 btn1 = Button(root,text='Start',font=('Ansana New',20,'bold'),fg='white',bg='green',command=start).pack()
 btn2 = Button(root,text='Stop',font=('Ansana New',20,'bold'),fg='white',bg='red',command=stop).pack()
 btn3 = Button(root,text='Speed',font=('Ansana New',20,'bold'),fg='white',bg='red',command=getActualSpeed).pack()
-#btn4 = Button(root,text='set Speed',font=('Ansana New',20,'bold'),fg='white',bg='red',command=setTargetSpeed(1000,'CW')).pack()
+btn4 = Button(root,text='set Speed',font=('Ansana New',20,'bold'),fg='white',bg='red',command=setTargetSpeed(2000,'CW')).pack()
 
 # Start Tkinter event loop
 root.mainloop()
