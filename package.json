@@ -5,7 +5,21 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.8.3",
-    "express": "^4.9.4",
+    "express": "^4.18.1",
     "mongojs": "^0.17.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RONANDEE/simple-rest-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RONANDEE/simple-rest-api/issues"
+  },
+  "homepage": "https://github.com/RONANDEE/simple-rest-api#readme"
 }
